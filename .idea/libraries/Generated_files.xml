@@ -2,15 +2,19 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/example-ws.min.js" />
         <item url="file://$PROJECT_DIR$/example/index.min.js" />
+        <item url="file://$PROJECT_DIR$/js/Voice.min.js" />
+        <item url="file://$PROJECT_DIR$/js/label.min.js" />
         <item url="file://$PROJECT_DIR$/js/popup.min.js" />
+        <item url="file://$PROJECT_DIR$/js/toggle.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/example-ws.min.js" />
       <root url="file://$PROJECT_DIR$/example/index.min.js" />
+      <root url="file://$PROJECT_DIR$/js/Voice.min.js" />
+      <root url="file://$PROJECT_DIR$/js/label.min.js" />
       <root url="file://$PROJECT_DIR$/js/popup.min.js" />
+      <root url="file://$PROJECT_DIR$/js/toggle.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
