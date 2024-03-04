@@ -97,7 +97,7 @@ function setLabel(label, element) {
     loadLabels()
 }
 
-$("*").on('scroll', e => {
+$("*").on('scroll', () => {
     hide()
 })
 export {show, hide, loadLabels, setLabel}
