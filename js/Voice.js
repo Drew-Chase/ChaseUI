@@ -46,7 +46,7 @@ export default class Voice {
                     interim_transcript += event.results[i][0].transcript;
                 }
             }
-            if (replaceText != "") {
+            if (replaceText !== "") {
                 final_transcript = final_transcript.replace(replaceText, "");
                 interim_transcript = interim_transcript.replace(replaceText, "");
             }
