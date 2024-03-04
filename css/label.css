@@ -1,0 +1,11 @@
+.label {
+    position: fixed;
+    color: #ffffff;
+    background-color: #3D3D3D;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity .2s;
+    pointer-events: none;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);
+}
