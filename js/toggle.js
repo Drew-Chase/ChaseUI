@@ -1,4 +1,4 @@
-$(document).on("load", () => {
+$(window).on("load", () => {
     const toggles = $("toggle");
 
 
