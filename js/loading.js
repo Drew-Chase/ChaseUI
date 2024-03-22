@@ -13,7 +13,7 @@ let defaultOptions = {
     fullscreen: true,
     size: '100px',
     font: '2rem',
-    color: "white",
+    color: "var(--primary)",
     speed: '1s',
 };
 
