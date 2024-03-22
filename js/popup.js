@@ -1,12 +1,12 @@
 /**
  * Opens a popup with the specified name and data.
  *
- * @param {string} name - The name of the popup.
+ * @param {string} name - The name or path of the popup excluding the .html.
  * @param {Object} [data] - Optional data for the popup.
  * @return {Promise<JQuery<HTMLElement>|HTMLElement>} - A promise that is resolved when the popup is opened.
  */
 async function openPopup(name, data = {}) {
-    const html = $(await $.get(`assets/popups/${name}.html`)).slice(1);
+    const html = $(await $.get(`${name}.html`));
     name = name.replace(/[^a-zA-Z]/g, "");
     let popup = $(`<div class='popup' id="${name}-popup">`);
     const popupContent = $(`<div class='popup-content'>`);
