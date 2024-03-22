@@ -35,7 +35,6 @@ function startLoading(options = defaultOptions) {
     // Set default options if not provided
     options = populateMissingWithDefaultOptions(options);
 
-    if ($("link[href='assets/css/loading.css']").length === 0) $("head").append($("<link rel='stylesheet' href='assets/css/loading.css'>"));
     if ($(".loading").length > 0) return;
     const loading = $(`<div class="loading"><p class="message">${options.message}</p></div>`);
     if (options.fullscreen) loading.addClass("fullscreen");
