@@ -1,0 +1,26 @@
+.floating-input {
+    position: relative;
+}
+
+.floating-input label {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.floating-input input[type="text"] {
+    padding: 5px;
+}
+
+.floating-input input[type="text"]:focus,
+.floating-input input[type="text"]:valid {
+    padding-top: 25px;
+}
+
+.floating-input input[type="text"]:focus + label,
+.floating-input input[type="text"]:valid + label {
+    top: 0;
+    transform: scale(0.75);
+    background-color: white;
+    z-index: 1;
+}
