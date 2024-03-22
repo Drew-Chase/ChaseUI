@@ -1,7 +1,7 @@
 $(window).on("load", () => {
-    const toggles = $("toggle");
+    const toggles = $("toggle"); // Get all elements with the class "toggle".
 
-
+    // Add a "toggle" event listener to all elements with the class "toggle".
     $(`[toggle-hidden]`).each((_, element) => {
         let target = $(element);
         let toggle = $(`#${target.attr("toggle-hidden")}`);
