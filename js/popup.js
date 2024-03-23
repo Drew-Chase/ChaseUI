@@ -51,9 +51,9 @@ function closePopup(name) {
  *
  * @param {string} message - The message to be displayed in the alert popup.
  * @param {function=} onclose - Optional callback function to be executed when the alert popup is closed.
+ * @return {jQuery<HTMLElement>} - The jQuery object representing the alert popup.
  */
-function alert(message, onclose = () => {
-}) {
+function alert(message, onclose = null) {
     const name = `alert-${new Date().getTime()}`
     let popup = $(`<div id="${name}-popup" class='popup'>`);
     const popupContent = $(`<div class='popup-content'>`);
@@ -70,9 +70,11 @@ function alert(message, onclose = () => {
 
         popup.find(".close").on("click", () => {
             closePopup(name);
-            onclose();
+            if (onclose)
+                onclose();
         });
     }, 100)
+    return popup;
 }
 
 export {openPopup, closePopup, alert};
