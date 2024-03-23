@@ -54,7 +54,8 @@ function closePopup(name) {
  */
 function alert(message, onclose = () => {
 }) {
-    let popup = $(`<div class='popup'>`);
+    const name = `alert-${new Date().getTime()}`
+    let popup = $(`<div class='popup ${name}-popup'>`);
     const popupContent = $(`<div class='popup-content'>`);
 
     popupContent.append(`<h1>Alert</h1>`)
