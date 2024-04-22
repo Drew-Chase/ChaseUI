@@ -119,7 +119,7 @@ function populateMissingWithDefaultOptions(options) {
     options.speed = options.speed || defaultOptions.speed;
     options.font = options.font || defaultOptions.font;
     options.message = options.message || defaultOptions.message;
-    options.fullscreen = options.fullscreen || defaultOptions.fullscreen;
+    options.fullscreen = options.fullscreen ?? defaultOptions.fullscreen;
 
     return options;
 }
