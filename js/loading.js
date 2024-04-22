@@ -7,6 +7,7 @@
  * @property {string} font - The default font size of the loading screen message. Can be any valid CSS font size value.
  * @property {string} color - The default color of the loading screen message. Can be any valid CSS color value.
  * @property {string} speed - The default speed of the loading animation. Can be any valid CSS animation duration value.
+ * @property {string} id - The default id of the loading screen element.
  */
 let defaultOptions = {
     message: "",
@@ -15,6 +16,7 @@ let defaultOptions = {
     font: '2rem',
     color: "var(--primary)",
     speed: '1s',
+    id: 'loading'
 };
 
 /**
@@ -28,19 +30,20 @@ let defaultOptions = {
  * @param {string} [options.speed] - The speed of the loading animation. Should be a valid CSS animation duration value.
  * @param {string} [options.font] - The font size of the loading animation element. Should be a valid CSS font size value.
  *
- * @return {void}
+ * @return {JQuery<HTMLElement>}
  */
 function startLoading(options = defaultOptions) {
 
     // Set default options if not provided
     options = populateMissingWithDefaultOptions(options);
 
-    if ($(".loading").length > 0) return;
-    const loading = $(`<div class="loading"><p class="message">${options.message}</p></div>`);
+    if ($(".loading").length > 0 && options.fullscreen) return $(".loading");
+    const loading = $(`<div class="loading" id="${options.id}"><p class="message">${options.message}</p></div>`);
     if (options.fullscreen) loading.addClass("fullscreen");
     loading.prop({style: `--size: ${options.size}; --color: ${options.color}; --speed: ${options.speed}; --font: ${options.font}`});
-
-    $("body").append(loading);
+    if (options.fullscreen)
+        $("body").append(loading);
+    return loading;
 }
 
 /**
@@ -59,7 +62,7 @@ function startLoading(options = defaultOptions) {
 function updateLoadingOptions(options) {
     options = populateMissingWithDefaultOptions(options);
 
-    const loading = $(".loading");
+    const loading = $(`.loading#${options.id}`);
     loading.prop({style: `--size: ${options.size}; --color: ${options.color}; --speed: ${options.speed}; --font: ${options.font}`});
     loading.html(`<p class="message">${options.message}</p>`)
     if (options.fullscreen) loading.addClass("fullscreen");
@@ -123,11 +126,11 @@ function populateMissingWithDefaultOptions(options) {
 
 /**
  * Removes the loading element from the DOM.
- *
+ * @param {string} id - The id of the loading element to remove.
  * @returns {void}
  */
-function stopLoading() {
-    $(".loading").remove();
+function stopLoading(id = "loading") {
+    $(`.loading#${id}`).remove();
 }
 
 export {startLoading, stopLoading, updateLoadingOptions, startLoadingForDuration}
